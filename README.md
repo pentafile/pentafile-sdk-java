@@ -1,2 +1,2 @@
 # sdk-java-integration
-For java versions 7+
+For java versions 6+
