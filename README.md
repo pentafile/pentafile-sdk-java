@@ -1,4 +1,4 @@
-# pentafile-java-sdk-premise-integration
+# Pentafile-java-sdk
 
 Ejemplo de Integración de pentafile en tu aplicación
 
