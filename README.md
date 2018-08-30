@@ -5,10 +5,22 @@ Ejemplo de Integración de pentafile en tu aplicación
 ### Repositorio Maven
 ```xml
 <repository>
-            <id>pentafile-release</id>
-            <url>http://developer.sotechcloud.com/archiva/repository/pentafile-release/</url>
-        </repository>
+ <id>pentafile-release</id>
+ <url>http://developer.sotechcloud.com/archiva/repository/pentafile-release/</url>
+</repository>
 ```
-Paso 1: Descarga el proyecto
+### Dependencia maven
+```xml
+<dependency>
+ <groupId>com.pentafile</groupId>
+ <artifactId>pentafile-java-sdk-file-premise</artifactId>
+ <version>1.0.0</version>
+</dependency>
+```
+#### Paso 1: 
 
-Paso 2: Compila con Java 6+
+Descarga el proyecto
+
+#### Paso 2: 
+
+Compila con Java 6+
