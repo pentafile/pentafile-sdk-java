@@ -24,10 +24,10 @@ public class MainSampleIntegration {
 
     static {
         /**
-         * AppKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx //key de la aplicación
          * Url=http://IP:8080/pentafile  // Url del servidor de pentafile
+         * appKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx //key de la aplicación
          */
-        API = PentafileFactory.newInstance("AppKey", "Url");
+        API = PentafileFactory.newInstance("Url","appKey");
     }
 
     /**
