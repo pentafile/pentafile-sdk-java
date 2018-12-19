@@ -13,7 +13,7 @@ Ejemplo de Integración de pentafile en tu aplicación
 ```xml
 <dependency>
  <groupId>com.pentafile</groupId>
- <artifactId>pentafile-java-sdk-file-premise</artifactId>
+ <artifactId>pentafile-sdk-java</artifactId>
  <version>1.0.0</version>
 </dependency>
 ```
