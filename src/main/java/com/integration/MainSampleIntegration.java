@@ -28,14 +28,7 @@ public class MainSampleIntegration {
         /**
          * Pentafile Cloud 
          * AppKey=xxxxxxxxxxxxxxxxxxxxxxxx
-         * PentafileFactory.newInstance("AppKey");
-         */
-        /**
-         * Pentafile On Premise 
-         * Endpoint=http://127.0.0.1:8080/pentafile
-         * AppKey=xxxxxxxxxxxxxxxxxxxxxxxxx
-         *
-         * API = PentafileFactory.newInstance("Endpoint", "AppKey");
+         * API = PentafileFactory.newInstance("AppKey");
          */
     }
 
@@ -55,10 +48,10 @@ public class MainSampleIntegration {
         try {
             File archivo = new File("G:\\storage\\pentafile\\sanrafael.jpg");
             ObjectFile file = API.uploadFile(UUID.randomUUID().toString().replace("-", "") + archivo.getName(), new FileInputStream(archivo));
-            System.out.println("id :" + file.getId());
+            System.out.println("key :" + file.getKey());
             System.out.println("type : " + file.getType());
             System.out.println("size : " + file.getSize());
-            System.out.println("key :" + file.getKey());
+            System.out.println("id: " + file.getId());
             System.out.println("url : " + file.getUrl());
         } catch (FileNotFoundException e) {
             System.out.println("IO " + e.getMessage());
@@ -99,11 +92,10 @@ public class MainSampleIntegration {
             /**
              * Save file
              */
-            System.out.println("Id : " + file.getKey());
-            System.out.println("Size : " + file.getSize());
-            System.out.println("Type : " + file.getType());
-            System.out.println("Url : " + file.getUrl());
-            System.out.println("Created : " + file.getCreated());
+            System.out.println("key :" + file.getKey());
+            System.out.println("type : " + file.getType());
+            System.out.println("size : " + file.getSize());
+            System.out.println("url : " + file.getUrl());
         } catch (PentafileException e) {
             System.out.println("Pentafile Error " + e.getMessage());
 
