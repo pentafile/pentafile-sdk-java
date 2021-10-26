@@ -4,6 +4,7 @@
 package com.integration;
 
 import com.pentafile.sdk.PentafileAPI;
+import com.pentafile.sdk.PentafileFactory;
 import com.pentafile.sdk.bean.ObjectFile;
 import com.pentafile.sdk.exception.PentafileException;
 import java.io.File;
@@ -12,24 +13,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.UUID;
 import org.apache.commons.io.IOUtils;
 
-/**
- *
- * @author user
- */
 public class MainSampleIntegration {
 
     public static PentafileAPI API = null;
 
     static {
-
-        /**
-         * Pentafile Cloud 
-         * AppKey=xxxxxxxxxxxxxxxxxxxxxxxx
-         * API = PentafileFactory.newInstance("AppKey");
-         */
+        API = PentafileFactory.newInstance("repoKey");
     }
 
     /**
@@ -47,11 +38,11 @@ public class MainSampleIntegration {
     public static void uploadFile() {
         try {
             File archivo = new File("G:\\storage\\pentafile\\sanrafael.jpg");
-            ObjectFile file = API.uploadFile(UUID.randomUUID().toString().replace("-", "") + archivo.getName(), new FileInputStream(archivo));
+            ObjectFile file = API.uploadFile(archivo.getName(), new FileInputStream(archivo));
             System.out.println("key :" + file.getKey());
             System.out.println("type : " + file.getType());
             System.out.println("size : " + file.getSize());
-            System.out.println("id: " + file.getId());
+            System.out.println("handle: " + file.getHandle());
             System.out.println("url : " + file.getUrl());
         } catch (FileNotFoundException e) {
             System.out.println("IO " + e.getMessage());
@@ -65,8 +56,8 @@ public class MainSampleIntegration {
      */
     public static void downloadFile() {
         try {
-            String fileId = "eca7a26d2a4d4baaa78fbbab9627b27asanrafael.jpg";
-            InputStream is = API.downloadFile(fileId);
+            String fileKey = "eca7a26d2a4d4baaa78fbbab9627b27asanrafael.jpg";
+            InputStream is = API.downloadFile(fileKey);
             /**
              * Save file
              */
@@ -87,14 +78,15 @@ public class MainSampleIntegration {
      */
     public static void infoFile() {
         try {
-            String fileId = "8e3377fa-a1a2-4b65-b886-73b95286ae83-doc.pdf";
-            ObjectFile file = API.infoFile(fileId);
+            String fileKey = "8e3377fa-a1a2-4b65-b886-73b95286ae83-doc.pdf";
+            ObjectFile file = API.infoFile(fileKey);
             /**
              * Save file
              */
             System.out.println("key :" + file.getKey());
             System.out.println("type : " + file.getType());
             System.out.println("size : " + file.getSize());
+            System.out.println("handle :" + file.getHandle());
             System.out.println("url : " + file.getUrl());
         } catch (PentafileException e) {
             System.out.println("Pentafile Error " + e.getMessage());
@@ -107,8 +99,8 @@ public class MainSampleIntegration {
      */
     public static void deleteFile() {
         try {
-            String fileId = "5220147b9ac94092ac6415a556c000a1";
-            API.deleteFile(fileId);
+            String fileKey = "5220147b9ac94092ac6415a556c000a1";
+            API.deleteFile(fileKey);
             System.out.println("file deleted OK");
         } catch (PentafileException e) {
             System.out.println("Pentafile Error " + e.getMessage());
